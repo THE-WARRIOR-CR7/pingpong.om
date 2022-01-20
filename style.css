@@ -1,0 +1,27 @@
+.heading {
+    width: 100%;
+    text-align: left;
+}
+.heading h3{
+    display: inline;
+}
+.heading button{
+float:right;
+border: 1px ridge blue;
+}
+#status, #start, #restart{
+    font-size: 22px;
+
+}
+h4 {
+    background-color: lime;
+     line-height:2;
+     margin: 0px;
+}
+.modal-dialog {
+    width: 90%;
+}
+.model-body {
+    text-align: left;
+    font-size: 20px;
+}
