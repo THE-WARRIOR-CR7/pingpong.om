@@ -33,7 +33,10 @@ function setup(){
 function modelLoaded() {
 	console.log('Model Loaded!');
   }
-
+function preload() {
+  ball_touch=loadSound("ball_touch_paddel.wav");
+  missed_touch=loadSound("missed.wav");
+}
   function gotPoses(results)
   {
 	if(results.length > 0)
@@ -146,8 +149,10 @@ function move(){
   if (ball.x-2.5*ball.r/2< 0){
   if (ball.y >= paddle1Y&& ball.y <= paddle1Y + paddle1Height) {
     ball.dx = -ball.dx+0.5; 
+    ball_touch.play();
   }
   else{
+    missed_touch.play();
     pcscore++;
     reset();
     navigator.vibrate(100);
@@ -180,7 +185,10 @@ function models(){
     text("Speed:"+abs(ball.dx),50,15);
     text("Height:"+height,235,15)
 }
-
+function restart() {
+  pcscore=0;
+  loop();
+}
 
 //this function help to not go te paddle out of canvas
 function paddleInCanvas(){
